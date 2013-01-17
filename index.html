@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Inflect by pksunkara</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Inflect</h1>
+        <p class="header">custom inflections for nodejs</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/pksunkara/inflect/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/pksunkara/inflect/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/pksunkara/inflect">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/pksunkara">pksunkara</a></p>
+
+
+      </header>
+      <section>
+        <h2>Installation</h2>
+
+<div class="highlight"><pre>npm install i
+</pre></div>
+
+<h2>Usage</h2>
+
+<p>Require the module before using</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">inflect</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'i'</span><span class="p">)();</span>
+</pre></div>
+
+<p>All the below api functions can be called directly on a string</p>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">titleize</span><span class="p">(</span><span class="s1">'messages to store'</span><span class="p">)</span> <span class="c1">// === 'Messages To Store'</span>
+<span class="s1">'messages to store'</span><span class="p">.</span><span class="nx">titleize</span> <span class="c1">// === 'Messages To Store'</span>
+</pre></div>
+
+<p>only if <code>true</code> is passed while initiating</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">inflect</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'i'</span><span class="p">)(</span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+
+<h3>Pluralize</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">pluralize</span><span class="p">(</span><span class="s1">'person'</span><span class="p">);</span> <span class="c1">// === 'people'</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">pluralize</span><span class="p">(</span><span class="s1">'octopus'</span><span class="p">);</span> <span class="c1">// === 'octopi'</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">pluralize</span><span class="p">(</span><span class="s1">'Hat'</span><span class="p">);</span> <span class="c1">// === 'Hats'</span>
+</pre></div>
+
+<h3>Singularize</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">singularize</span><span class="p">(</span><span class="s1">'people'</span><span class="p">);</span> <span class="c1">// === 'person'</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">singularize</span><span class="p">(</span><span class="s1">'octopi'</span><span class="p">);</span> <span class="c1">// === 'octopus'</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">singularize</span><span class="p">(</span><span class="s1">'Hats'</span><span class="p">);</span> <span class="c1">// === 'Hat'</span>
+</pre></div>
+
+<h3>Camelize</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">camelize</span><span class="p">(</span><span class="s1">'message_properties'</span><span class="p">);</span> <span class="c1">// === 'MessageProperties'</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">camelize</span><span class="p">(</span><span class="s1">'message_properties'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span> <span class="c1">// === 'messageProperties'</span>
+</pre></div>
+
+<h3>Underscore</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">underscore</span><span class="p">(</span><span class="s1">'MessageProperties'</span><span class="p">);</span> <span class="c1">// === 'message_properties'</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">underscore</span><span class="p">(</span><span class="s1">'messageProperties'</span><span class="p">);</span> <span class="c1">// === 'message_properties'</span>
+</pre></div>
+
+<h3>Humanize</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">humanize</span><span class="p">(</span><span class="s1">'message_id'</span><span class="p">);</span> <span class="c1">// === 'Message'</span>
+</pre></div>
+
+<h3>Dasherize</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">dasherize</span><span class="p">(</span><span class="s1">'message_properties'</span><span class="p">);</span> <span class="c1">// === 'message-properties'</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">dasherize</span><span class="p">(</span><span class="s1">'Message Properties'</span><span class="p">);</span> <span class="c1">// === 'Message Properties'</span>
+</pre></div>
+
+<h3>Titleize</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">titleize</span><span class="p">(</span><span class="s1">'message_properties'</span><span class="p">);</span> <span class="c1">// === 'Message Properties'</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">titleize</span><span class="p">(</span><span class="s1">'message properties to keep'</span><span class="p">);</span> <span class="c1">// === 'Message Properties to Keep'</span>
+</pre></div>
+
+<h3>Demodulize</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">demodulize</span><span class="p">(</span><span class="s1">'Message.Bus.Properties'</span><span class="p">);</span> <span class="c1">// === 'Properties'</span>
+</pre></div>
+
+<h3>Tableize</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">tableize</span><span class="p">(</span><span class="s1">'MessageBusProperty'</span><span class="p">);</span> <span class="c1">// === 'message_bus_properties'</span>
+</pre></div>
+
+<h3>Classify</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">classify</span><span class="p">(</span><span class="s1">'message_bus_properties'</span><span class="p">);</span> <span class="c1">// === 'MessageBusProperty'</span>
+</pre></div>
+
+<h3>Foreign key</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">foreign_key</span><span class="p">(</span><span class="s1">'MessageBusProperty'</span><span class="p">);</span> <span class="c1">// === 'message_bus_property_id'</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">foreign_key</span><span class="p">(</span><span class="s1">'MessageBusProperty'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span> <span class="c1">// === 'message_bus_propertyid'</span>
+</pre></div>
+
+<h3>Ordinalize</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">ordinalize</span><span class="p">(</span> <span class="s1">'1'</span> <span class="p">);</span> <span class="c1">// === '1st'</span>
+</pre></div>
+
+<h2>Custom rules for inflection</h2>
+
+<h3>Custom plural</h3>
+
+<p>We can use regexp in any of these custom rules</p>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">inflections</span><span class="p">.</span><span class="nx">plural</span><span class="p">(</span><span class="s1">'person'</span><span class="p">,</span> <span class="s1">'guys'</span><span class="p">);</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">pluralize</span><span class="p">(</span><span class="s1">'person'</span><span class="p">);</span> <span class="c1">// === 'guys'</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">singularize</span><span class="p">(</span><span class="s1">'guys'</span><span class="p">);</span> <span class="c1">// === 'guy'</span>
+</pre></div>
+
+<h3>Custom singular</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">inflections</span><span class="p">.</span><span class="nx">singular</span><span class="p">(</span><span class="s1">'guys'</span><span class="p">,</span> <span class="s1">'person'</span><span class="p">)</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">singularize</span><span class="p">(</span><span class="s1">'guys'</span><span class="p">);</span> <span class="c1">// === 'person'</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">pluralize</span><span class="p">(</span><span class="s1">'person'</span><span class="p">);</span> <span class="c1">// === 'people'</span>
+</pre></div>
+
+<h3>Custom irregular</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">inflections</span><span class="p">.</span><span class="nx">irregular</span><span class="p">(</span><span class="s1">'person'</span><span class="p">,</span> <span class="s1">'guys'</span><span class="p">)</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">pluralize</span><span class="p">(</span><span class="s1">'person'</span><span class="p">);</span> <span class="c1">// === 'guys'</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">singularize</span><span class="p">(</span><span class="s1">'guys'</span><span class="p">);</span> <span class="c1">// === 'person'</span>
+</pre></div>
+
+<h3>Custom human</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">inflections</span><span class="p">.</span><span class="nx">human</span><span class="p">(</span><span class="sr">/^(.*)_cnt$/i</span><span class="p">,</span> <span class="s1">'$1_count'</span><span class="p">);</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">inflections</span><span class="p">.</span><span class="nx">humanize</span><span class="p">(</span><span class="s1">'jargon_cnt'</span><span class="p">);</span> <span class="c1">// === 'Jargon count'</span>
+</pre></div>
+
+<h3>Custom uncountable</h3>
+
+<div class="highlight"><pre><span class="nx">inflect</span><span class="p">.</span><span class="nx">inflections</span><span class="p">.</span><span class="nx">uncountable</span><span class="p">(</span><span class="s1">'oil'</span><span class="p">)</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">pluralize</span><span class="p">(</span><span class="s1">'oil'</span><span class="p">);</span> <span class="c1">// === 'oil'</span>
+<span class="nx">inflect</span><span class="p">.</span><span class="nx">singularize</span><span class="p">(</span><span class="s1">'oil'</span><span class="p">);</span> <span class="c1">// === 'oil'</span>
+</pre></div>
+
+<h2>Contributors</h2>
+
+<p>Here is a list of <a href="http://github.com/pksunkara/inflect/contributors">Contributors</a></p>
+
+<h3>TODO</h3>
+
+<ul>
+<li>More obscure test cases</li>
+</ul><p><strong>I accept pull requests and guarantee a reply back within a day</strong></p>
+
+<h2>License</h2>
+
+<p>MIT/X11</p>
+
+<h2>Bug Reports</h2>
+
+<p>Report <a href="http://github.com/pksunkara/inflect/issues">here</a>. <strong>Guaranteed reply within a day</strong>.</p>
+
+<h2>Contact</h2>
+
+<p>Pavan Kumar Sunkara (<a href="mailto:pavan.sss1991@gmail.com">pavan.sss1991@gmail.com</a>)</p>
+
+<p>Follow me on <a href="https://github.com/users/follow?target=pksunkara">github</a>, <a href="http://twitter.com/pksunkara">twitter</a></p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
